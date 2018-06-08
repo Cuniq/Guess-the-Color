@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Simonetta:900" rel="stylesheet">
+    <link rel="stylesheet" href="guesscss.css">
+    <title>Guess the color!</title>
+</head>
+
+<body>
+    <header class="unselectable-text">
+        <p>THE GREAT</p>
+        <p id="colorNamePara"></p>
+        <p>GUESSING GAME</p>
+    </header>
+
+    <aside class="p-fixed d-flex flex-column">
+        <label for="rotateXdeg">
+            <span>-90</span>rotate X
+            <span>90</span>
+        </label>
+        <input type="range" id="rotateXdeg" min="-90" max="90" value="0" oninput="sliderRotateXHandler(this)" />
+
+        <label for="rotateYdeg">
+            <span>-90</span>rotate Y
+            <span>90</span>
+        </label>
+        <input type="range" id="rotateYdeg" min="-90" max="90" value="0" oninput="sliderRotateYHandler(this)" />
+
+        <label for="enable3D" class="justify-content-center">
+            Enable 3D?
+        </label>
+        <input type="checkbox" id="enable3D" onchange="enable3DChangeHandler()" />
+    </aside>
+
+    <main>
+        <div id="menu-bar" class="d-flex justify-content-around align-items-center container unselectable-text">
+            <div id="newGame">
+                <a>NEW COLORS</a>
+            </div>
+            <div>
+                <span id="tryAgainSpan" class="hidden">Try again</span>
+            </div>
+            <div id="difficultyMenu">
+                <a>EASY</a>
+                <a>MEDIUM</a>
+                <a>HARD</a>
+                <a>WHITE</a>
+            </div>
+        </div>
+        <div id="main-window">
+
+        </div>
+    </main>
+
+    <script src="guessjs.js">
+    </script>
+    <script>
+        setBodySize();
+        resetInput();
+        setMenuCallback();
+        startGame();
+    </script>
+</body>
+
+</html>
